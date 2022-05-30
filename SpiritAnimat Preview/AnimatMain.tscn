@@ -1,0 +1,286 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://AnimatedSprite.gd" type="Script" id=1]
+[ext_resource path="res://AnimatMain.gd" type="Script" id=2]
+[ext_resource path="res://add_rect232.png" type="Texture" id=3]
+[ext_resource path="res://add_1rect237.png" type="Texture" id=4]
+[ext_resource path="res://ZH.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Label.tscn" type="PackedScene" id=6]
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0.192157, 0.184314, 0.184314, 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 18
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 22
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.290196, 0.321569, 0.352941, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 20
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.545098, 0.545098, 0.545098, 1 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 12
+font_data = ExtResource( 5 )
+
+[node name="AnimatMain" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 750, 550 )
+
+[node name="Panel" type="Panel" parent="HBoxContainer"]
+margin_right = 196.0
+margin_bottom = 550.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 6 )
+
+[node name="Panel2" type="Panel" parent="HBoxContainer"]
+margin_left = 200.0
+margin_right = 750.0
+margin_bottom = 550.0
+rect_min_size = Vector2( 550, 550 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Panel2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+stretch_mode = 6
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 465, 257 )
+script = ExtResource( 1 )
+
+[node name="ButtonPlay" type="Button" parent="."]
+margin_left = 8.0
+margin_top = 472.0
+margin_right = 83.0
+margin_bottom = 536.0
+rect_min_size = Vector2( 60, 64 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 5 )
+text = "播放"
+
+[node name="ButtonStop" type="Button" parent="."]
+margin_left = 107.0
+margin_top = 473.0
+margin_right = 187.0
+margin_bottom = 537.0
+rect_min_size = Vector2( 60, 64 )
+size_flags_horizontal = 2
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 5 )
+text = "停止"
+
+[node name="CountButton" type="VBoxContainer" parent="."]
+margin_right = 195.0
+margin_bottom = 287.0
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="Label" parent="CountButton" instance=ExtResource( 6 )]
+margin_left = 0.0
+margin_right = 195.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+text = "属性栏"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CountButton"]
+margin_top = 54.0
+margin_right = 195.0
+margin_bottom = 129.0
+rect_min_size = Vector2( 195, 75 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CountButton/HBoxContainer"]
+margin_right = 88.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "水平帧数"
+align = 1
+valign = 1
+
+[node name="Label" parent="CountButton/HBoxContainer" instance=ExtResource( 6 )]
+margin_right = 158.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CountButton/HBoxContainer"]
+margin_left = 162.0
+margin_right = 195.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CountButton/HBoxContainer/VBoxContainer"]
+margin_right = 33.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="CountButton/HBoxContainer/VBoxContainer"]
+margin_top = 39.0
+margin_right = 33.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CountButton"]
+margin_top = 133.0
+margin_right = 195.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 195, 75 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CountButton/HBoxContainer2"]
+margin_right = 88.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "垂直帧数"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="CountButton/HBoxContainer2"]
+margin_left = 92.0
+margin_right = 158.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_fonts/font = SubResource( 7 )
+custom_styles/normal = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CountButton/HBoxContainer2"]
+margin_left = 162.0
+margin_right = 195.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CountButton/HBoxContainer2/VBoxContainer"]
+margin_right = 33.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="CountButton/HBoxContainer2/VBoxContainer"]
+margin_top = 39.0
+margin_right = 33.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CountButton"]
+margin_top = 212.0
+margin_right = 195.0
+margin_bottom = 287.0
+rect_min_size = Vector2( 195, 75 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="CountButton/HBoxContainer3"]
+margin_right = 88.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "播放速度"
+align = 1
+valign = 1
+
+[node name="Label" type="Label" parent="CountButton/HBoxContainer3"]
+margin_left = 92.0
+margin_right = 158.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_fonts/font = SubResource( 7 )
+custom_styles/normal = SubResource( 1 )
+text = "1"
+align = 1
+valign = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CountButton/HBoxContainer3"]
+margin_left = 162.0
+margin_right = 195.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="CountButton/HBoxContainer3/VBoxContainer"]
+margin_right = 33.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 3 )
+icon_align = 1
+expand_icon = true
+
+[node name="Button2" type="Button" parent="CountButton/HBoxContainer3/VBoxContainer"]
+margin_top = 39.0
+margin_right = 33.0
+margin_bottom = 75.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource( 4 )
+icon_align = 1
+expand_icon = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CountButton"]
+margin_top = 291.0
+margin_right = 195.0
+margin_bottom = 366.0
+rect_min_size = Vector2( 195, 75 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_text = "把图片拖进本窗口，设置好切割属性，播放即可预览精灵动画（注意需要规则的精灵表）"
+text = "把图片拖进本窗口，设置好切割属性，播放即可预览精灵动画（注意需要规则的精灵表）"
+
+[connection signal="pressed" from="ButtonPlay" to="AnimatedSprite" method="_on_ButtonPlay_pressed"]
+[connection signal="pressed" from="ButtonStop" to="AnimatedSprite" method="_on_ButtonStop_pressed"]
+[connection signal="pressed" from="CountButton/HBoxContainer/VBoxContainer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CountButton/HBoxContainer/VBoxContainer/Button2" to="." method="_on_Button2_pressed"]
+[connection signal="pressed" from="CountButton/HBoxContainer2/VBoxContainer/Button" to="." method="_on_Button_pressed_v"]
+[connection signal="pressed" from="CountButton/HBoxContainer2/VBoxContainer/Button2" to="." method="_on_Button2_pressed_v"]
+[connection signal="pressed" from="CountButton/HBoxContainer3/VBoxContainer/Button" to="AnimatedSprite" method="_on_Button_speed_pressed"]
+[connection signal="pressed" from="CountButton/HBoxContainer3/VBoxContainer/Button2" to="AnimatedSprite" method="_on_Button2_speed_pressed"]
